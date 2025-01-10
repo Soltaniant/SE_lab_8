@@ -16,4 +16,30 @@ public interface GraphAdapter {
 ```
 
 ## گام دوم
-در ادامه لازم است پیاده‌سازی‌ واسط تعریف شده را برای کتابخانه اولیه‌مان، یعنی Jung، انجام دهیم.
+در ادامه لازم است پیاده‌سازی‌ واسط تعریف شده را برای کتابخانه اولیه‌مان، یعنی Jung، انجام دهیم. در نتیجه خواهیم داشت:
+```java
+public class JungGraphAdapter implements GraphAdapter {
+    private final SparseMultigraph<Integer, String> graph;
+
+    public JungGraphAdapter() {
+        this.graph = new SparseMultigraph<>();
+    }
+
+    @Override
+    public void addVertex(Integer vertex) {
+        graph.addVertex(vertex);
+    }
+
+    @Override
+    public void addEdge(String edge, Integer vertex1, Integer vertex2) {
+        graph.addEdge(edge, vertex1, vertex2);
+    }
+
+    @Override
+    public Collection<Integer> getNeighbors(Integer vertex) {
+        return graph.getNeighbors(vertex);
+    }
+}
+```
+
+که این پیاده‌سازی صرفا همان پیاده‌سازی گدشته است اما با این تفاوت که این بار آن را به عنوان یک نمونه پیاده‌سازی از واسط GraphAdapter ایجاد کرده‌ایم.
