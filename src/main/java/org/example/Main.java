@@ -1,11 +1,11 @@
 package org.example;
 
-import edu.uci.ics.jung.graph.SparseMultigraph;
 import org.example.graphTravelers.BfsGraphTraverser;
 import org.example.graphTravelers.DfsGraphTraverser;
 import org.example.graphTravelers.Traverser;
+import org.example.graphTravelers.adapter.GraphAdapter;
+import org.example.graphTravelers.adapter.JungGraphAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -13,7 +13,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Create a graph
-        SparseMultigraph<Integer,String> graph = new SparseMultigraph<>();
+       GraphAdapter graph = new JungGraphAdapter();
 
         // Add vertices (using Integer nodes)
         graph.addVertex(1);
