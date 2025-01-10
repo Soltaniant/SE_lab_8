@@ -1,4 +1,4 @@
-package org.example.graphTravelers;
+package org.example.graphTravelers.adapter;
 
 import java.util.Collection;
 

@@ -14,3 +14,6 @@ public interface GraphAdapter {
     Collection<Integer> getNeighbors(Integer vertex);
 }
 ```
+
+## گام دوم
+در ادامه لازم است پیاده‌سازی‌ واسط تعریف شده را برای کتابخانه اولیه‌مان، یعنی Jung، انجام دهیم.
