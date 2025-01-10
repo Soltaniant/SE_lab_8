@@ -50,3 +50,34 @@ public class JungGraphAdapter implements GraphAdapter {
 
 در اثر این تغییر، هر سه کلاس `Main`، `BfsTraverser` و `DfsTraverser` دچار تغییرات بسیار جزیی شدند.
 
+## گام چهارم
+در این مرحله کافیست برای کتابخانه جدید نیز مشابه کاری که برای کتابخانه پیشین کردیم، نمونه پیاده‌سازی‌ای از واسط `GraphAdapter` ارائه کنیم. در نتیجه خواهیم داشت:
+
+```java
+public class JGraphAdapter implements GraphAdapter {
+    private final DefaultDirectedGraph<Integer, String> graph;
+
+    public JGraphAdapter() {
+        this.graph = new DefaultDirectedGraph<>(String.class);
+    }
+
+    @Override
+    public void addVertex(Integer vertex) {
+        graph.addVertex(vertex);
+    }
+
+    @Override
+    public void addEdge(String edge, Integer vertex1, Integer vertex2) {
+        graph.addEdge(vertex1, vertex2);
+    }
+
+    @Override
+    public Collection<Integer> getNeighbors(Integer vertex) {
+        return graph.outgoingEdgesOf(vertex).stream()
+                .map(graph::getEdgeTarget)
+                .collect(Collectors.toSet());
+    }
+}
+```
+
+توجه: این کلاس بر اساس مستندات کتابخانه نوشته‌ شده است.
