@@ -4,6 +4,7 @@ import org.example.graphTravelers.BfsGraphTraverser;
 import org.example.graphTravelers.DfsGraphTraverser;
 import org.example.graphTravelers.Traverser;
 import org.example.graphTravelers.adapter.GraphAdapter;
+import org.example.graphTravelers.adapter.JGraphAdapter;
 import org.example.graphTravelers.adapter.JungGraphAdapter;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Create a graph
-       GraphAdapter graph = new JungGraphAdapter();
+       GraphAdapter graph = new JGraphAdapter();
 
         // Add vertices (using Integer nodes)
         graph.addVertex(1);
